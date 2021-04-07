@@ -53,4 +53,13 @@ describe("crud routes", () => {
       tastiness: 2,
     });
   });
+
+  test("should delete a food by id", async () => {
+    const res = await request(app).delete("/api/foods/1");
+    expect(res.body).toEqual({
+      id: "1",
+      name: "Schmagel",
+      tastiness: 2,
+    });
+  });
 });
