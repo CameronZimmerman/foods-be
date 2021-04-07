@@ -26,4 +26,15 @@ describe("crud routes", () => {
       tastiness: 100,
     });
   });
+
+  test("should get all foods by id", async () => {
+    const res = await request(app).get("/api/foods");
+    expect(res.body).toEqual([
+      {
+        id: "1",
+        name: "bagel",
+        tastiness: 100,
+      },
+    ]);
+  });
 });
