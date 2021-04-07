@@ -27,7 +27,7 @@ describe("crud routes", () => {
     });
   });
 
-  test("should get all foods by id", async () => {
+  test("should get all foods", async () => {
     const res = await request(app).get("/api/foods");
     expect(res.body).toEqual([
       {
@@ -36,5 +36,16 @@ describe("crud routes", () => {
         tastiness: 100,
       },
     ]);
+  });
+
+  test("should update a food by id", async () => {
+    const res = await request(app)
+      .put("/api/foods/1")
+      .send({ name: "Schmagel", tastiness: 2 });
+    expect(res.body).toEqual({
+      id: "1",
+      name: "Schmagel",
+      tastiness: 2,
+    });
   });
 });
