@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test-watch": "--watch jest",
+    "test": "jest --setupFiles dotenv/config",
+    "test-watch": "jest --watch --setupFiles dotenv/config",
     "start": "node -r dotenv/config server.js",
-    "start-watch": "nodemon --watch -r dotenv/config server.js"
+    "start-watch": "nodemon -r dotenv/config server.js",
+    "setup-db": "node -r dotenv/config lib/utils/setup-db.js"
   },
   "repository": {
     "type": "git",
