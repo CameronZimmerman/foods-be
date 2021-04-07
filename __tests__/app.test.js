@@ -1,10 +1,15 @@
 const request = require("supertest");
 const setup = require("../lib/utils/setup.js");
+const teardown = require("../lib/utils/teardown.js");
 const app = require("../lib/app.js");
 
 describe("crud routes", () => {
   beforeAll(() => {
     return setup();
+  });
+
+  afterAll(() => {
+    return teardown();
   });
 
   test("should create a food and respond with it's contents", async () => {
